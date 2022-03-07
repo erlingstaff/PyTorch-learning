@@ -18,3 +18,13 @@ class BostonDataset(torch.utils.data.Dataset):
 
   def __getitem__(self, i):
       return self.X[i], self.y[i]
+
+
+  
+if __name__ == '__main__':
+  
+  # Set fixed random number seed
+  torch.manual_seed(42)
+  
+  # Load Boston dataset
+  X, y = load_boston(return_X_y=True)
