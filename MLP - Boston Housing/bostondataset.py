@@ -3,6 +3,7 @@ from torch import nn
 from torch.utils.data import DataLoader
 from sklearn.datasets import load_boston
 from sklearn.preprocessing import StandardScaler
+from mlp import *
 
 class BostonDataset(torch.utils.data.Dataset):
   def __init__(self, X, y, scale_data=True):
