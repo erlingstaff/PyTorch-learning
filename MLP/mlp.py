@@ -44,7 +44,7 @@ if __name__ == '__main__':
       
       current_loss += loss.item()
       if i % 500 == 499:
-          print('Loss after mini-batch %5d: %.3f' %
+          print('Loss %5d: %.3f' %
                 (i + 1, current_loss / 500))
           current_loss = 0.0
 
