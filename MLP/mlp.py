@@ -6,9 +6,6 @@ from torch.utils.data import DataLoader
 from torchvision import transforms
 
 class MLP(nn.Module):
-  '''
-    Multilayer Perceptron.
-  '''
   def __init__(self):
     super().__init__()
     self.layers = nn.Sequential(
@@ -22,12 +19,10 @@ class MLP(nn.Module):
 
 
   def forward(self, x):
-    '''Forward pass'''
     return self.layers(x)
   
   
 if __name__ == '__main__':
-  
   torch.manual_seed(42)
   dataset = CIFAR10(os.getcwd(), download=True, transform=transforms.ToTensor())
   trainloader = torch.utils.data.DataLoader(dataset, batch_size=10, shuffle=True, num_workers=1)
