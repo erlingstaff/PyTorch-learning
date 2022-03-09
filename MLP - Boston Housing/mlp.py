@@ -66,7 +66,7 @@ if __name__ == '__main__':
   optimizer = torch.optim.Adam(mlp.parameters(), lr=1e-4)
   
   # Run the training loop
-  for epoch in range(0, 10): # 5 epochs at maximum
+  for epoch in range(0, 100): # 5 epochs at maximum
     
     # Print epoch
     print(f'Starting epoch {epoch+1}')
