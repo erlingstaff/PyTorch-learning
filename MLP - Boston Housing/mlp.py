@@ -23,3 +23,5 @@ class MLP(nn.Module):
 if __name__ == '__main__':
 	torch.manual_seed(42)
 	X, y = load_boston(return_X_y=True)
+	dataset = BostonDataset(X, y)
+	trainloader = torch.utils.data.DataLoader(dataset, batch_size=10, shuffle=True, num_workers=1)
