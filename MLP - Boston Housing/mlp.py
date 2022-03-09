@@ -25,3 +25,6 @@ if __name__ == '__main__':
 	X, y = load_boston(return_X_y=True)
 	dataset = BostonDataset(X, y)
 	trainloader = torch.utils.data.DataLoader(dataset, batch_size=10, shuffle=True, num_workers=1)
+	loss_function = nn.L1Loss()
+	optimizer = torch.optim.Adam(MLP.parameters(), lr=1e-4)
+
