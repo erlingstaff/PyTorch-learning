@@ -31,7 +31,10 @@ class MLP(nn.Module):
     	nn.ReLU(),
     	nn.Linear(64, 32),
     	nn.ReLU(),
-    	nn.Linear(32, 1)
+		nn.Linear(32, 16),
+    	nn.ReLU(),
+		nn.Linear(16, 1),
+    	nn.ReLU(),
    		)
 
 
@@ -64,37 +67,37 @@ if __name__ == '__main__':
     	# Print epoch
 		print(f'Starting epoch {epoch+1}')
     
-	# Set current loss value
-	current_loss = 0.0
-    
-	# Iterate over the DataLoader for training data
-	for i, data in enumerate(trainloader, 0):
-		# Get and prepare inputs
-		inputs, targets = data
-		inputs, targets = inputs.float(), targets.float()
-		targets = targets.reshape((targets.shape[0], 1))
-      
-		# Zero the gradients
-		optimizer.zero_grad()
-      
-		# Perform forward pass
-		outputs = mlp(inputs)
-      
-		# Compute loss
-		loss = loss_function(outputs, targets)
-      
-		# Perform backward pass
-		loss.backward()
-      
-		# Perform optimization
-		optimizer.step()
-      
-		# Print statistics
-		current_loss += loss.item()
-		if i % 10 == 0:
-			print('Loss after mini-batch %5d: %.3f' %
-				(i + 1, current_loss / 500))
-			current_loss = 0.0
+		# Set current loss value
+		current_loss = 0.0
+		
+		# Iterate over the DataLoader for training data
+		for i, data in enumerate(trainloader, 0):
+			# Get and prepare inputs
+			inputs, targets = data
+			inputs, targets = inputs.float(), targets.float()
+			targets = targets.reshape((targets.shape[0], 1))
+		
+			# Zero the gradients
+			optimizer.zero_grad()
+		
+			# Perform forward pass
+			outputs = mlp(inputs)
+		
+			# Compute loss
+			loss = loss_function(outputs, targets)
+		
+			# Perform backward pass
+			loss.backward()
+		
+			# Perform optimization
+			optimizer.step()
+		
+			# Print statistics
+			current_loss += loss.item()
+			if i % 10 == 0:
+				print('Loss after mini-batch %5d: %.3f' %
+					(i + 1, current_loss / 500))
+				current_loss = 0.0
 
 # Process is complete.
 print('Training process has finished.')
