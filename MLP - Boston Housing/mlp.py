@@ -19,3 +19,7 @@ class MLP(nn.Module):
 
   def forward(self, x):
     return self.layers(x)
+
+if __name__ == '__main__':
+	torch.manual_seed(42)
+	X, y = load_boston(return_X_y=True)
