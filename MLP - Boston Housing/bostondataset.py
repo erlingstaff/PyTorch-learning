@@ -22,9 +22,5 @@ class BostonDataset(torch.utils.data.Dataset):
 
   
 if __name__ == '__main__':
-  
-  # Set fixed random number seed
-  torch.manual_seed(42)
-  
-  # Load Boston dataset
-  X, y = load_boston(return_X_y=True)
+    torch.manual_seed(42)
+    X, y = load_boston(return_X_y=True)
